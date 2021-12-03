@@ -1,14 +1,11 @@
 const { kakao } = window;
-// 리액트 환경에서 스크립트로 등록된 kakao를 전역객체로 부터 불러오는 것이 좋음
 export default function KakaoMapScript() {
     const container = document.getElementById('myMap');
     const options = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
-        level: 3,
+        center: new kakao.maps.LatLng(33.499505, 126.531130),
+        level: 7,
     };
     const map = new kakao.maps.Map(container, options);
-
-    // 여기에서 지도 로직 핸들링 하면 됨.
 }
 
 // var gps_use = null; //gps의 사용가능 여부
