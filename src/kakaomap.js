@@ -1,11 +1,15 @@
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
+const { kakao } = window;
+// 리액트 환경에서 스크립트로 등록된 kakao를 전역객체로 부터 불러오는 것이 좋음
+export default function KakaoMapScript() {
+    const container = document.getElementById('myMap');
+    const options = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 3,
     };
+    const map = new kakao.maps.Map(container, options);
 
-// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-var map = new kakao.maps.Map(mapContainer, mapOption); 
+    // 여기에서 지도 로직 핸들링 하면 됨.
+}
 
 // var gps_use = null; //gps의 사용가능 여부
 // var gps_lat = null; // 위도
