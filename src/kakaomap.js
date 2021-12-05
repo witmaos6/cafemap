@@ -1,12 +1,35 @@
 const { kakao } = window;
+let map;
+
 export default function KakaoMapScript() {
     const container = document.getElementById('myMap');
     const options = {
         center: new kakao.maps.LatLng(33.499505, 126.531130),
         level: 7,
     };
-    const map = new kakao.maps.Map(container, options);
+    map = new kakao.maps.Map(container, options);
 }
+
+function locationLoadSuccess(pos){
+    const currentPos = new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+
+    map.panTo(currentPos);
+
+    const marker = new kakao.maps.Marker({
+        position: currentPos
+    });
+
+    marker.setMap(null);
+    marker.setMap(map);
+};
+
+function locationLoadError(pos){
+    alert('위치 정보를 가져오지 못했습니다');
+};
+
+function getCurrentPosBtn(){
+    navigator.geolocation.getCurrentPosition(locationLoadSuccess, locationLoadError);
+};
 
 // var gps_use = null; //gps의 사용가능 여부
 // var gps_lat = null; // 위도
