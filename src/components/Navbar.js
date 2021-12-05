@@ -16,6 +16,8 @@ function Navbar() {
             <div>
               카페 탐색기
             </div>
+            <div>
+            </div>
             {/* SidebarData를 순서대로 담기
             {Sidebardata.map((item, index) => {
               return (
