@@ -13,7 +13,11 @@ function Navbar() {
       <IconContext.Provider value={{ color: "#fff" }}>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items">
-            카페 탐색기
+            카페 탐색기 
+            <hr></hr>
+            <div>
+              카페 탐색기라니 너무행
+            </div>
             {/* SidebarData를 순서대로 담기
             {Sidebardata.map((item, index) => {
               return (
