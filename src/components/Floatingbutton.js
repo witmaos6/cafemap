@@ -6,11 +6,11 @@ function Floatingbutton(props) {
             position:"fixed",
             right:"10px",
             bottom: "10px",
-            width: '100px',
+            width: '150px',
             height: '100px',
-            zIndex:"10",
+            zIndex:"10"
         }}>
-            <button onClick={props.getCurrentPosBtn}>경로 받아오기</button>
+            <button onClick={props.getCurrentPosBtn}>현 위치 보기</button>
         </div>
     )
 }
