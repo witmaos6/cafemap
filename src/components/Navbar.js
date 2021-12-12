@@ -2,13 +2,24 @@
 
 import React, { useState } from 'react';
 import './Navbar.css';
+import Home from '../pages/Home';
 /* 아이콘 컬러 전체 변경 기능 */
 import { IconContext } from 'react-icons';
 function Navbar() {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
+    const [InputText, setInputText]=useState('')
+    const [Place, setPlace]=useState('')
 
     // e.target.value는 선택 한 값이 반환됨
+    const onChange=(e)=>{
+        setInputText(e.target.value)
+    }
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+        setPlace(InputText)
+        setInputText('')
+    }
     const onChange_gender = e => {
         console.log(e.target.value);
     };
@@ -25,8 +36,10 @@ function Navbar() {
                             <div>카페- 탐색기-</div>
 
                             <div>
-                                <input />
-                                <button>목적지 탐색</button>
+                                <form className="inputForm" onSubmit={handleSubmit}>
+                                    <input placeholder="검색어를 입려하세요" onChange={onChange} value={InputText} />
+                                    <button type="submit">검색</button>
+                                </form>
                             </div>
                             <section id="theme">
                                 <select onChange_gender={onChange_gender}>
@@ -68,6 +81,7 @@ function Navbar() {
                     <button className="toggle-menu" onClick={showSidebar}></button>
                 </nav>
             </IconContext.Provider>
+            <Home searchPlace={Place}/>
         </>
     );
 }
