@@ -40,7 +40,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://witmaos6.github.io/cafemap/",
   "devDependencies": {
     "A": "^0.0.1",
     "ansi-html": "^0.0.7",
@@ -56,5 +55,6 @@
     "nth-check": "^2.0.1",
     "path-parse": "^1.0.7",
     "postcss": "^8.4.4"
-  }
+  },
+  "homepage": "https://witmaos6.github.io/cafemap/"
 }
