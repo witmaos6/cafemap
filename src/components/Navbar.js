@@ -39,11 +39,15 @@ function Navbar({name}) {
 
                             <div>
                                 <form className="inputForm" onSubmit={handleSubmit}>
-                                    <input placeholder="검색어를 입려하세요" onChange={onChange} value={InputText} />
+                                    <input placeholder="검색어를 입력하세요" onChange={onChange} value={InputText} />
                                     <button type="submit">검색</button>
                                 </form>
-                            </div>
+                                <div>
 
+                                </div>
+                                <div>선택된 목적지는</div>
+                            </div>
+                                <input></input>
                             <div>
                                 
                             </div>
