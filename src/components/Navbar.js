@@ -14,12 +14,12 @@ function Navbar() {
     // e.target.value는 선택 한 값이 반환됨
     const onChange=(e)=>{
         setInputText(e.target.value)
-    }
+    };
     const handleSubmit=(e)=>{
         e.preventDefault()
         setPlace(InputText)
         setInputText('')
-    }
+    };
     const onChange_gender = e => {
         console.log(e.target.value);
     };

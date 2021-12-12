@@ -6,7 +6,6 @@ function Home({ searchPlace }) {
     const [Place, setPlaces] = useState([])
     let map;
     let infowindow;
-    let marker=[];
 
     function locationLoadSuccess(pos) {
         const currentPos = new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -73,7 +72,7 @@ function Home({ searchPlace }) {
         paginationEl.appendChild(fragment)
       }
       function displayMarker(place) {
-        marker = new kakao.maps.Marker({
+        let marker = new kakao.maps.Marker({
           map: map,
           position: new kakao.maps.LatLng(place.y, place.x),
         })
@@ -87,7 +86,6 @@ function Home({ searchPlace }) {
     // useEffect 로 스크립트를 불러옴
     useEffect(() => {
         infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-        marker=[]
         const container = document.getElementById('myMap');
         const options = {
             center: new kakao.maps.LatLng(33.499505, 126.531130),
