@@ -9,14 +9,19 @@ import ToExamine from "./pages/ToExamine";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { useState } from "react";
 
-function App() {
+function App() { 
+  const [name, setName] = useState('');
+
+  
+
   return (
     <Router>
-      <Navbar />
+      <Navbar name={name}/>
       <Switch>
         <Route path="/ToExamine" component={ToExamine} />
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact component={() => <Home setName={setName}/>} />
         <Route path="/About" component={About} />
         <Route path="/Contact" component={Contact} />
       </Switch>

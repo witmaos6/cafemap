@@ -1,11 +1,11 @@
 /* src/components/Navbar.js */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import Home from '../pages/Home';
 /* 아이콘 컬러 전체 변경 기능 */
 import { IconContext } from 'react-icons';
-function Navbar() {
+function Navbar({name}) {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
     const [InputText, setInputText]=useState('')
@@ -26,6 +26,8 @@ function Navbar() {
     const onChange_sex = e => {
         console.log(e.target.value);
     };
+
+    useEffect(() => {console.log(name)}, [name]);
     return (
         <>
             {/* 아이콘 컬러 전체 변경 기능 */}
@@ -40,6 +42,10 @@ function Navbar() {
                                     <input placeholder="검색어를 입려하세요" onChange={onChange} value={InputText} />
                                     <button type="submit">검색</button>
                                 </form>
+                            </div>
+
+                            <div>
+                                
                             </div>
                             <section id="theme">
                                 <select onChange_gender={onChange_gender}>

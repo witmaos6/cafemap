@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Floatingbutton from '../components/Floatingbutton';
 const { kakao } = window;
 
-function Home({ searchPlace }) {
+function Home({ setName, searchPlace  }) {
+    
     const [Place, setPlaces] = useState([])
     let map;
     let infowindow;
@@ -71,6 +72,7 @@ function Home({ searchPlace }) {
         }
         paginationEl.appendChild(fragment)
       }
+      
       function displayMarker(place) {
         let marker = new kakao.maps.Marker({
           map: map,
@@ -78,7 +80,25 @@ function Home({ searchPlace }) {
         })
   
         kakao.maps.event.addListener(marker, 'click', function () {
-           infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>')
+          let a = document.createElement("div");
+          a.setAttribute('style', 'padding:5px;font-size:12px;');
+
+          let content = document.createTextNode(place.place_name);
+          a.appendChild(content);
+
+          let btn = document.createElement("button");
+          btn.innerText = "확인";
+          btn.onclick = () => console.log(setName);
+          a.appendChild(btn);
+
+          // '<div style="padding:5px;font-size:12px;">${place.place_name} <button onclick="onClick()">확인</button> </div>';
+           infowindow.setContent(a);
+           
+          //  const temp = document.querySelector('#btn');
+          //  temp.addEventListener('click', () => {
+          //    console.log('ds')
+          //  })
+
            infowindow.open(map, marker)
         })
       }
@@ -95,7 +115,7 @@ function Home({ searchPlace }) {
         const ps = new kakao.maps.services.Places();
         ps.keywordSearch(searchPlace, placesSearchCB)
         getCurrentPosBtn();
-    }, [searchPlace])
+    }, [searchPlace,setName])
 
     return (
         <>
@@ -126,6 +146,7 @@ function Home({ searchPlace }) {
         ))}
         <div id="pagination"></div>
       </div>
+           
             <Floatingbutton getCurrentPosBtn={getCurrentPosBtn}></Floatingbutton>
         </>
     );
