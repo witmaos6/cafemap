@@ -43,13 +43,11 @@ function Navbar() {
                             </div>
                             <section id="theme">
                                 <select onChange_gender={onChange_gender}>
-                                    <option value="9세 이하">9세 이하</option>
                                     <option value="10대">10대</option>
                                     <option value="20대">20대</option>
                                     <option value="30대">30대</option>
                                     <option value="40대">40대</option>
-                                    <option value="50대">50대</option>
-                                    <option value="60대 이상">60대 이상</option>
+                                    <option value="50대 이상">50대 이상</option>
                                     <option value="선택 안함">선택 안함</option>
                                 </select>
                             </section>
