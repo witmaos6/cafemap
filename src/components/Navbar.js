@@ -41,9 +41,9 @@ function Navbar({ name, setPlace }) {
                                     <button type="submit">검색</button>
                                 </form>
                                 <div></div>
-                                <div>선택된 목적지는 {name} </div>
+                                <div>선택된 목적지는 </div>
                             </div>
-                            <input></input>
+                            <input type="text" value={name} disabled />
                             <div></div>
                             <section id="theme">
                                 <select onChange_gender={onChange_gender}>
