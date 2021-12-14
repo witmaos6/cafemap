@@ -1,24 +1,23 @@
 /* src/components/Navbar.js */
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
-import Home from '../pages/Home';
+
 /* 아이콘 컬러 전체 변경 기능 */
 import { IconContext } from 'react-icons';
-function Navbar({name}) {
+function Navbar({ name, setPlace }) {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
-    const [InputText, setInputText]=useState('')
-    const [Place, setPlace]=useState('')
+    const [InputText, setInputText] = useState('');
 
     // e.target.value는 선택 한 값이 반환됨
-    const onChange=(e)=>{
-        setInputText(e.target.value)
+    const onChange = e => {
+        setInputText(e.target.value);
     };
-    const handleSubmit=(e)=>{
-        e.preventDefault()
-        setPlace(InputText)
-        setInputText('')
+    const handleSubmit = e => {
+        e.preventDefault();
+        setPlace(InputText);
+        setInputText('');
     };
     const onChange_gender = e => {
         console.log(e.target.value);
@@ -27,7 +26,6 @@ function Navbar({name}) {
         console.log(e.target.value);
     };
 
-    useEffect(() => {console.log(name)}, [name]);
     return (
         <>
             {/* 아이콘 컬러 전체 변경 기능 */}
@@ -42,15 +40,11 @@ function Navbar({name}) {
                                     <input placeholder="검색어를 입력하세요" onChange={onChange} value={InputText} />
                                     <button type="submit">검색</button>
                                 </form>
-                                <div>
-
-                                </div>
-                                <div>선택된 목적지는</div>
+                                <div></div>
+                                <div>선택된 목적지는 {name} </div>
                             </div>
-                                <input></input>
-                            <div>
-                                
-                            </div>
+                            <input></input>
+                            <div></div>
                             <section id="theme">
                                 <select onChange_gender={onChange_gender}>
                                     <option value="10대">10대</option>
@@ -89,7 +83,6 @@ function Navbar({name}) {
                     <button className="toggle-menu" onClick={showSidebar}></button>
                 </nav>
             </IconContext.Provider>
-            <Home searchPlace={Place}/>
         </>
     );
 }
