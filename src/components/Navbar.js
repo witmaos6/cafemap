@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 
-/* 아이콘 컬러 전체 변경 기능 */
+
 import { IconContext } from 'react-icons';
 function Navbar({ name, setPlace }) {
     const [sidebar, setSidebar] = useState(false);
