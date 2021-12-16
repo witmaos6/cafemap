@@ -80,15 +80,16 @@ function Home({ setName, searchPlace }) {
 
         kakao.maps.event.addListener(marker, 'click', function () {
             let a = document.createElement('div');
-            a.setAttribute('style', 'padding:5px;font-size:12px;');
+            a.setAttribute('style', 'padding:15px;font-size:15px;');
 
             let content = document.createTextNode(place.place_name);
             a.appendChild(content);
 
             let btn = document.createElement('button');
-            btn.innerText = '확인';
+            btn.innerText = '목적지로 선택';
             btn.onclick = () => setName(place.place_name);
             a.appendChild(btn);
+            btn.setAttribute('style','margin: 20px')
 
             // '<div style="padding:5px;font-size:12px;">${place.place_name} <button onclick="onClick()">확인</button> </div>';
             infowindow.setContent(a);
