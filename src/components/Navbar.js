@@ -5,7 +5,7 @@ import './Navbar.css';
 
 
 import { IconContext } from 'react-icons';
-function Navbar({ name, setPlace }) {
+function Navbar({ name, setPlace, }) {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
     const [InputText, setInputText] = useState('');
@@ -115,6 +115,10 @@ function Navbar({ name, setPlace }) {
         position : "relative"
       };
 
+    function protoMap() {
+        console.log("히히 못 가");
+    }
+
     // e.target.value는 선택 한 값이 반환됨
     const onChange = e => {
         setInputText(e.target.value);
@@ -171,7 +175,7 @@ function Navbar({ name, setPlace }) {
                             </section>
                             
                             <div>
-                                <button style={btnStyle2}>추천 카페보기</button>
+                                <button style={btnStyle2} onClick={protoMap}>추천 카페보기</button>
                             </div>
                         </body>
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Floatingbutton from '../components/Floatingbutton';
 const { kakao } = window;
 
-function Home({ setName, searchPlace }) {
+function Home({ setName, searchPlace, setMap }) {
     const [Place, setPlaces] = useState([]);
     let map;
     let infowindow;
